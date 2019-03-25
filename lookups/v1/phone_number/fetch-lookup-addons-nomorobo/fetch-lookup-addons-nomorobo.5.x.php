@@ -12,14 +12,10 @@ $sid    = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 $token  = "your_auth_token";
 $twilio = new Client($sid, $token);
 
-$phone_number = $twilio->lookups->v1->phoneNumbers("+16502530000")
+$phone_number = $twilio->lookups->v1->phoneNumbers("+19892008374")
                                     ->fetch(array(
-                                                "addOns" => "payfone_tcpa_compliance",
-                                                "addOnsData" => array(
-                                                    "payfone_tcpa_compliance.right_party_contacted_date" => "20160101"
-                                                ),
-                                                "type" => "carrier"
+                                                "addOns" => "nomorobo_spamscore"
                                             )
                                     );
 
-print($phone_number->carrier);
+print($phone_number->callerName);
